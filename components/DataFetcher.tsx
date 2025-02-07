@@ -11,7 +11,7 @@ type Props = {
 export default function DataFetcher(props: Props) {
     const fetcher = (url: string): Promise<string> => fetch(url).then(res => res.text());
 
-    const { data, error, isLoading } = useSWR(`https://script.google.com/macros/s/AKfycbzNAkCpsCa7Iybm4HOds4bUeHS02zRW8xOoZZ_aUZiYVUQoKuGtDNZxUSio9CZ4FngDYw/exec?text=${props.query}&to=${props.target}`, fetcher)
+    const { data, error, isLoading } = useSWR(`https://script.google.com/macros/s/AKfycbwCFWXlLMRLi9GdgMiQ-rCLwJbLEG55FKc4OHrz_AdUWLihOPIEfjEru61au6pdVQMzRw/exec?text=${props.query}&to=${props.target}`, fetcher)
 
     if (error) return <Notification color="red" title="APIとの通信に失敗しました。"></Notification>
     if (isLoading) return <Loader color="blue" />
